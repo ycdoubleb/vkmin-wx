@@ -1,0 +1,36 @@
+<!--pages/order/order.wxml-->
+<view class="movie-container" data-id="wskeee">
+  <!-- 导航栏 -->
+  <view class='date-box'>
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="{{today}}" bindchange="bindDateChange">
+      <view class="picker weui-select weui-select_in-select-after">
+        当前日期: {{date ? date : '全部'}}
+      </view>
+    </picker>
+  </view>
+
+  <swiper class="movie-content-wrapper">
+    <swiper-item>
+      <scroll-view class='list' scroll-y scroll-with-animation>
+        <view class='pulldown load-box'>
+          <view class="weui-loading" wx:if="{{refreshing}}"></view>
+          <view class='reflesh-btn' wx:if="{{!refreshing}}" bindtap='refresh'>点击刷新</view>
+        </view>
+        <view class='item-box' wx:for="{{orders}}" wx:key="order_sn">
+          <view>
+            <text class='order_sn'>{{item.order_sn}}</text>
+            <text class='created_time'>{{item.created_time}}</text>
+          </view>
+          <view>
+            <text class='order_name'>【{{item.order_status_text}}】{{item.goods_name}}</text>
+            <text class='amount'>￥{{item.order_amount}}</text>
+          </view>
+        </view>
+        <view class='loadmore load-box'>
+          <view class="weui-loading" wx:if="{{loadmoreing}}"></view>
+          <view class='loadmore-btn' wx:if="{{!loadmoreing}}" bindtap='loadMore'>点击查看更多</view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

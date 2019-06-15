@@ -1,0 +1,87 @@
+/* pages/index/withdrawal/withdrawal.wxss */
+
+page {
+  height: 100%;
+}
+
+.container {
+  padding: 50rpx 80rpx;
+}
+
+.container > view {
+  width: 100%;
+  text-align: center;
+  flex: 0;
+}
+
+/* 大标题 */
+
+.container .title {
+  font-size: 50rpx;
+  color: #e4e4e4;
+  padding: 40rpx 0;
+  border-bottom: solid 1px #e4e4e4;
+}
+
+/* 提现金额 */
+
+.container .input-box {
+  display: flex;
+  padding: 50rpx 0 20rpx 0;
+  align-items: center;
+  border-bottom: solid 1px #e4e4e4;
+}
+
+.container .input-box .sign {
+  font-size: 50rpx;
+}
+
+.container .input-box .input {
+  flex: 1;
+}
+
+/* 当前账户余额 */
+
+.container .info-box {
+  display: flex;
+  font-size: 24rpx;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.container .info-box view:first-child {
+  flex: 1;
+}
+
+.container .info-box .balance-box {
+  text-align: left;
+}
+
+.container .info-box .balance-box text:last-child {
+  color: #f30;
+}
+
+.container .info-box .all-tx-btn {
+  font-size: 24rpx;
+}
+
+/* 提示信息 */
+
+.container .tips-box {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 24rpx;
+  padding-top: 80rpx;
+  color: #aaa;
+}
+
+/* 提交按钮 */
+
+.container .submit-box {
+  margin-bottom: 40rpx;
+}
+
+.container .submit-box .submit-btn {
+  flex: 1;
+}

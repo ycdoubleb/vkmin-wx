@@ -1,0 +1,40 @@
+<view class="movie-container" data-id="wskeee">
+  <!-- 导航栏 -->
+  <view class='condition-box'>
+    <picker mode="date" value="{{date}}" end="{{today}}" bindchange="bindDateChange">
+      <view class="picker weui-select weui-select_in-select-after">
+        当前日期: {{date ? date : '全部'}}
+      </view>
+    </picker>
+  </view>
+
+  <swiper class="movie-content-wrapper">
+    <swiper-item>
+      <scroll-view class='list' scroll-y scroll-with-animation>
+        <view class='pulldown load-box'>
+          <view class="weui-loading" wx:if="{{refreshing}}"></view>
+          <view class='reflesh-btn' wx:if="{{!refreshing}}" bindtap='refresh'>点击刷新</view>
+        </view>
+        <view class='item-box' wx:for="{{logs}}" wx:key="id">
+          <view class="weui-panel">
+            <view class="weui-panel__hd">{{item.order_sn}}</view>
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text {{(item.status == 1 || item.status == 5) ? 'danger' : ((item.status == 2 || item.status == 6) ? 'success' : '')}}">状态：{{item.status_text}}</view>
+                    <view class="weui-media-box__title weui-media-box__title_in-text">提现金额：￥{{item.amount}}</view>
+                    <view class="weui-media-box__desc">{{ item.feedback }}</view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">创建时间：{{item.created_time}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        </view>
+        <view class='loadmore load-box'>
+          <view class="weui-loading" wx:if="{{loadmoreing}}"></view>
+          <view class='loadmore-btn' wx:if="{{!loadmoreing}}" bindtap='loadMore'>点击查看更多</view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

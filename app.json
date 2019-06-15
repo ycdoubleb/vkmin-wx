@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/logs/logs",
+    "pages/order/order",
+    "pages/setting/setting",
+    "pages/wallet_log/wallet_log",
+    "pages/apply/apply",
+    "componets/image-picker/image-picker",
+    "pages/apply/pact/pact",
+    "pages/index/withdrawal/withdrawal",
+    "pages/index/withdrawal_log/withdrawal_log"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "共创充电商家端",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "selectedColor": "#4A6141",
+    "color": "#333",
+    "backgroundColor": "#fff",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icon/home.png",
+        "selectedIconPath": "images/icon/home-fill.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "images/icon/unorderedlist.png",
+        "selectedIconPath": "images/icon/detail-fill.png"
+      },
+      {
+        "pagePath": "pages/wallet_log/wallet_log",
+        "text": "流水",
+        "iconPath": "images/icon/account_book.png",
+        "selectedIconPath": "images/icon/account_book-fill.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 20000,
+    "connectSocket": 20000,
+    "uploadFile": 20000,
+    "downloadFile": 20000
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

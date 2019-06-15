@@ -1,0 +1,81 @@
+/* pages/order/order.wxss */
+
+page {
+  height: 100vh;
+}
+
+/**
+::-webkit-scrollbar {
+  width: 0;  
+  height: 0;
+  color: transparent;
+}*/
+
+.movie-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f2f2f2;
+  height: 100%;
+}
+
+/**********************************************
+ * 日期
+ *********************************************/
+.condition-box{
+  width: 100%;
+  background: #fff;
+  border-bottom: solid 1px #e4e4e4;
+  border-top: solid 1px #e4e4e4;
+  padding-left: 20rpx;
+}
+.condition-box .picker{
+  padding-left: 20rpx;
+}
+
+/**********************************************
+ * 订单列表
+ *********************************************/
+
+.movie-content-wrapper {
+  color: #666;
+  flex: 1;
+  height: 100px;
+  width: 100%;
+}
+
+.movie-content-wrapper .list {
+  height: 100%;
+}
+.movie-content-wrapper .list .load-box{
+  text-align: center;
+  font-size: 24rpx;
+  padding: 20rpx 0;
+}
+
+/** 订单项 **/
+.movie-content-wrapper .item-box {
+  display: flex;
+  flex-direction: column;
+  font-size: 24rpx;
+  border-bottom: solid 1px #e4e4e4;
+  background: #fff;
+  padding: 20rpx 20rpx;
+}
+.movie-content-wrapper .item-box view{
+  display: flex;
+  justify-content: space-between;
+}
+.movie-content-wrapper .item-box .add{
+  color: #28b28b;
+}
+.movie-content-wrapper .item-box .rem{
+  color: #ff3300;
+}
+
+.movie-content-wrapper .log_sn {
+  color: #aaaaaa;
+}
+.movie-content-wrapper .created_time {
+  color: #aaaaaa;
+}

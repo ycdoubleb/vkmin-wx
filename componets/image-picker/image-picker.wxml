@@ -1,0 +1,10 @@
+<!--componets/image-picker/image-picker.wxml-->
+<view class='image-picker'>
+  <view class='image-box'>
+    <view class='image-item' wx:for="{{images}}" wx:key="id">
+      <view class='loading' wx:if='{{item.status == 1}}'>{{item.progress}}%</view>
+      <image class='img' src='{{item.url}}'></image>
+    </view>
+    <view class='picker' bindtap='onPicker'>+</view>
+  </view>
+</view>

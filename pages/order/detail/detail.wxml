@@ -1,0 +1,65 @@
+<!--pages/order/detail/detail.wxml-->
+<view class='container'>
+  <view class='runing-box' wx:if="{{order && order.order_status == orderStatus.STATUS_PAYED}}">
+    <view class='order-info'>
+      <text class='order-status'>订单状态：{{orderStatus.STATUS_NAME_MAP[order.order_status]}}</text>
+      <text class='order-sn'>订单编号：{{order.order_sn}}</text>
+    </view>
+    <view class='goods-img-box'>
+      <image class='goods-img' src='../../../images/app/goods_img.png' mode='aspectFit'></image>
+    </view>
+    <view>
+      <view class='time'>{{time}}</view>
+      <view class='time-tip'>{{time == "00:00:00" ? "设备刚刚完成充电，正在打扫现场，稍等一分钟!" : "充电剩余时间"}}</view>
+    </view>
+    <view>
+      <view class='pwd-box'>
+        <view class='pwd-item' wx:for="{{order.password_arr}}">{{item}}</view>
+      </view>
+      <view class='pwd-tip'>请在设备上输入正确密码，打开 设备开始市电</view>
+    </view>
+    <button class='issue-btn weui-btn' type='warn' bindtap='onReportBug'>故障上报</button>
+  </view>
+
+  <view class='other-box' wx:if="{{order && order.order_status != orderStatus.STATUS_PAYED}}">
+    <view class='order-info-fill'>
+      <image class='file-icon' src='../../../images/icon/file-text.png'></image>
+      <view class='order-info'>
+        <text class='order-status'>订单状态：{{orderStatus.STATUS_NAME_MAP[order.order_status]}}</text>
+        <text class='order-sn'>订单编号：{{order.order_sn}}</text>
+      </view>
+    </view>
+
+    <view class='title-head'>支付信息</view>
+    <view class="category-item">
+      <view class="detail-item">
+        <text>支付方式</text>
+        <text>微信支付</text>
+      </view>
+      <view class="detail-item">
+        <text>价格</text>
+        <text>{{order.goods_price}}元</text>
+      </view>
+      <view class="detail-item">
+        <text>实付金额</text>
+        <text>{{order.goods_price}}元</text>
+      </view>
+    </view>
+
+    <view class='title-head'>操作时间</view>
+    <view class="category-item">
+      <view class="detail-item">
+        <text>创建时间</text>
+        <text>{{order.created_time}}</text>
+      </view>
+      <view class="detail-item">
+        <text>支付时间</text>
+        <text>{{order.pay_time}}</text>
+      </view>
+      <view class="detail-item">
+        <text>完成时间</text>
+        <text>{{order.finish_time}}</text>
+      </view>
+    </view>
+  </view>
+</view>

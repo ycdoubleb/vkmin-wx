@@ -1,0 +1,51 @@
+/* pages/apply/apply.wxss */
+
+.placeholder {
+  color: #777;
+}
+
+.weui-select text {
+  overflow: hidden;
+}
+
+/* 代理商 */
+
+.agency-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.agency-box .agency-scan-icon {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+/* 封面 */
+
+.merchat-cover-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.merchat-cover-box .merchat-cover {
+  width: 96rpx;
+  height: 96rpx;
+  margin: 20rpx 0;
+}
+
+.merchat-cover-box .merchat-cover-camera {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+/* 封面 */
+.cover-box{
+  text-align:center;
+}
+
+/* 地址 */
+.address{
+  font-size: 24rpx;
+}
