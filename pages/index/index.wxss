@@ -1,129 +1,28 @@
-/**index.wxss**/
-
 .container {
-  height: 100vh;
   padding: 20rpx;
-  background: #f2f2f2;
-  justify-content: flex-start;
+  background: #fff;
+  align-items: stretch;
 }
 
-/* 
- *头部 
- */
+.loading{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+/**
+ * head
+ **/
 
 .head-box {
-  background: #253544;
-  color: #BCBCBC;
-  text-align: center;
-  width: 100%;
-  font-size: 24rpx;
-  padding-top: 10rpx;
-}
-
-.head-box .money {
-  color: #ffffff;
-}
-
-.head-box .title {
-  font-size: 35rpx;
-}
-
-.today-sale-title-box {
-  text-align: left;
-  font-size: 24rpx;
-  font-weight: bold;
-  padding: 0 20rpx;
-  align-items: center;
-}
-
-.today-sale-title-box image {
-  width: 32rpx;
-  height: 32rpx;
-}
-
-/* 今天销售统计 */
-.today-sale-box{
+  position: relative;
   display: flex;
-  justify-content: space-around;
-  border-bottom: solid 1px #3A4956;
-  margin-top: 40rpx;
-}
-.today-sale-box .money{
-  font-size: 50rpx;
-}
-
-.today-sale-box .vrule{
-  border-left: solid 1px #3A4956;
-}
-.today-sale-box .t-box{
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 25rpx;
-  flex:1;
+  justify-content: space-between;
+  background: #06a206;
+  border-radius: 5px;
+  color: #ddd;
+  padding: 60rpx;
 }
 
-/* 余额 */
-.money-box{
-  display: flex;
-  padding: 20rpx;
-  align-items: center;
-  justify-content: space-around;
-}
-.money-box .m-box{
-  display: flex;
-  flex-direction: column;
-}
-.money-box button{
-  font-size: 30rpx;
-}
-
-/*
- * 内容
- */
-.body-box{
-  width: 100%;
-}
-
-.body-box .table{
-  display: flex;
-  width: 100%;
-  border: solid 1px #e4e4e4;
-  background: #ffffff;
-  font-size: 24rpx;
-  margin: 20rpx 0 0 0;
-}
-/* 今日 */
-.body-box .table .t-hd{
-  background: #28b28b;
-  color: #ffffff;
-  align-items: center;
-  justify-content: center;
-}
-
-.body-box .table .t-col{
-  display: flex;
-  flex-direction: column;
-  flex:1;
-  text-align: center;
-}
-/* 订单数 */
-.body-box .table .t-col .c-hd{
-  background: #f9f9f9;
-  border-bottom: solid 1px #e4e4e4;
-  border-right: solid 1px #e4e4e4;
-  color: #aaaaaa;
-}
-.body-box .table .t-col:last-child .c-hd{
-  border-right: none;
-}
-/* 订单内容 */
-.body-box .table .t-col .c-bd{
-  border-right: solid 1px #e4e4e4;
-}
-.body-box .table .t-col:last-child .c-bd{
-  border-right: none;
-}
-
-.body-box .table .t-col text{
-  padding: 15rpx;
-}

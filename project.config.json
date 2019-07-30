@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
@@ -22,9 +22,9 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.6",
-	"appid": "wx68c675232cb62649",
-	"projectname": "shareline_sj",
+	"libVersion": "2.7.2",
+	"appid": "wx44aeef59ce52fe7d",
+	"projectname": "vkmin",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -54,8 +54,8 @@
 				{
 					"id": 0,
 					"name": "页面测试",
-					"pathName": "pages/index/index",
-					"query": "q=http%3A%2F%2Fshareline.wskeee.top%2Fagency%2Fscan%3Fagency_id%3D1",
+					"pathName": "pages/setting/setting",
+					"query": "merchant_id=1",
 					"scene": null
 				}
 			]

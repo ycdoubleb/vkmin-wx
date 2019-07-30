@@ -1,90 +1,12 @@
-<view class="container">
+<view class='container' wx:if="{{ready}}">
+
   <view class='head-box'>
-    <text class='title'>门店管理</text>
-    <view class='today-sale-title-box'>
-      <image src='../../images/icon/pie chart-circle-fil.png'></image>
-      <text>今天营业统计</text>
-    </view>
-    <view class='today-sale-box'>
-      <view class='t-box'>
-        <text class='money'>￥{{today_sale['turnover']}}</text>
-        <text>营业额</text>
-      </view>
-      <view class='vrule'></view>
-      <view class='t-box'>
-        <text class='money'>{{today_sale['sale_count']}}</text>
-        <text>订单数</text>
-      </view>
-    </view>
-    <view class='hrule'></view>
-    <view class='money-box'>
-      <view class='m-box'>
-        <text>累计收益</text>
-        <text class='money'>￥{{all_sale['real_income']}}</text>
-      </view>
-      <view class='m-box'>
-        <text>账号余额</text>
-        <text class='money'>￥{{userInfo['money']}}</text>
-      </view>
-      <view class='m-box'>
-        <button bindtap='onWithdrawal' >提现</button>
-      </view>
-
-    </view>
+    头部
   </view>
+
   <view class='body-box'>
-    <view class='table'>
-      <view class='t-col t-hd'>
-        今日
-      </view>
-      <view class='t-col'>
-        <text class='c-hd'>订单数</text>
-        <text class='c-bd'>{{today_sale['sale_count']}}单</text>
-      </view>
-      <view class='t-col'>
-        <text class='c-hd'>订单金额</text>
-        <text class='c-bd'>{{today_sale['turnover']}}元</text>
-      </view>
-      <view class='t-col'>
-        <text class='c-hd'>分成金额</text>
-        <text class='c-bd'>{{today_sale['real_income']}}元</text>
-      </view>
-    </view>
-
-    <view class='table'>
-      <view class='t-col t-hd'>
-        本月
-      </view>
-      <view class='t-col'>
-        <text class='c-hd'>订单数</text>
-        <text class='c-bd'>{{month_sale['sale_count']}}单</text>
-      </view>
-      <view class='t-col'>
-        <text class='c-hd'>订单金额</text>
-        <text class='c-bd'>{{month_sale['turnover']}}元</text>
-      </view>
-      <view class='t-col'>
-        <text class='c-hd'>分成金额</text>
-        <text class='c-bd'>{{month_sale['real_income']}}元</text>
-      </view>
-    </view>
-
-    <view class='table'>
-      <view class='t-col t-hd'>
-        汇总
-      </view>
-      <view class='t-col'>
-        <text class='c-hd'>订单数</text>
-        <text class='c-bd'>{{all_sale['sale_count']}}单</text>
-      </view>
-      <view class='t-col'>
-        <text class='c-hd'>订单金额</text>
-        <text class='c-bd'>{{all_sale['turnover']}}元</text>
-      </view>
-      <view class='t-col'>
-        <text class='c-hd'>分成金额</text>
-        <text class='c-bd'>{{all_sale['real_income']}}元</text>
-      </view>
-    </view>
+    内容
   </view>
+
 </view>
+<view class='loading' wx:if="{{!ready}}">初始中...</view>

@@ -1,1 +1,40 @@
-/* pages/setting/setting.wxss */
+.container {
+  justify-content: flex-start;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500rpx;
+  background: #28b28b;
+  color: #fff;
+}
+
+.avatar-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 96px;
+  height: 96px;
+  border: solid 1px #e4e4e4;
+  border-radius: 48px;
+  margin-bottom: 5px;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 48px;
+}
+
+.avatar-small{
+  width: 76px;
+  height: 76px;
+  border-radius: 38px;
+}
+
+.body {
+  margin: 0;
+}

@@ -1,0 +1,12 @@
+<!--pages/login/login.wxml-->
+<view class='container'>
+  <image class='logo' mode='center' src='../../images/app/logo.jpg'></image>
+  <view class='content-box'>
+    <view class='title'>登录后开发者将获取一些权限</view>
+    <view class='item-title'>.获取你的公开信息（昵称、头像等）</view>
+    <button 
+      type="primary" 
+      wx:if="{{canIUse}}" 
+      open-type="getUserInfo" bindgetuserinfo="bindUserInfo">微信登录</button>
+  </view>
+</view>

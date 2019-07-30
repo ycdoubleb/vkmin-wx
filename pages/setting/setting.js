@@ -1,66 +1,65 @@
-// pages/setting/setting.js
+import {
+  EventName
+} from '../../utils/event.js';
+
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    user: null
+  },
+  //------------------------------------------------------------------------
+  //
+  // 生命周期函数
+  //
+  //------------------------------------------------------------------------
+  /**
+   * 监听页面加载
+   */
+  onLoad: function(options) {
+    this.preReady();
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onUnload: function() {
+    // 删除登录事件侦听
+    app.bus.remove(EventName.LOGIN, this);
   },
 
+  //------------------------------------------------------------------------
+  //
+  // 事件
+  //
+  //------------------------------------------------------------------------
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 登录操作
    */
-  onReady: function () {
-
+  onLogin: function(e) {
+    app.auth();
+  },
+  //------------------------------------------------------------------------
+  //
+  // 方法
+  //
+  //------------------------------------------------------------------------
+  /**
+   * 初始准备
+   */
+  preReady() {
+    const user = app.getUser();
+    if (!user) {
+      app.bus.on(EventName.LOGIN, this, this.ready);
+    } else {
+      if (app.getHasLogin()) this.ready({user});
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  ready({user}) {
+    this.setData({
+      user
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
