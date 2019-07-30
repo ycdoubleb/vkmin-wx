@@ -1,12 +1,67 @@
 <view class='container' wx:if="{{ready}}">
-
-  <view class='head-box'>
-    头部
+  <!--轮播图层-->
+  <view class="carousel">
+    <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" 
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{banners}}" wx:key>
+        <swiper-item>
+          <image src="{{item.path}}" class="slide-image sw_image"></image>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
-
-  <view class='body-box'>
-    内容
+  <!--推荐课程层-->
+  <view class="hot_course">
+    <!--标题-->
+    <text class="hot_title">推荐课程</text>
+    <!--列表-->
+    <view class="hot_list">
+      <block wx:for="{{recommend_courses}}" wx:key>
+        <!--列表项-->
+        <view class="hot_list_item">
+          <!--缩略图-->
+          <image src="{{item.thumb}}" class="thumb"></image>
+          <!--课程信息-->
+          <view class="course_info">
+            <!--课程名-->
+            <text class="course_name">{{item.name}}</text>
+            <view class="course_user">
+              <!--用户名-->
+              <view class="user">
+                <image src="/images/icon/user.png" class="user_icon"></image>
+                <text class="nickname">{{item.teacher_name}}</text>
+              </view>
+              <!--用户数-->
+              <view class="user_group">
+                <image src="/images/icon/user_group.png" class="user_group_icon"></image>
+                <text class="user_num">{{item.learning_count}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
   </view>
-
+  <!--专题层-->
+  <view class="topic">
+    <!--标题-->
+    <text class="topic_title">专题</text>
+    <!--网格-->
+    <view class="topic_grid">
+      <block wx:for="{{topics}}" wx:key>
+        <!--网格项-->
+        <view class="topic_grid_item">
+          <!--缩略图-->
+          <image src="{{item.thumb}}" class="thumb"></image>
+          <view class="topic_info">
+            <!--专题名-->
+            <text class="topic_name">{{item.name}}</text>
+            <!--课程数-->
+            <text class="course_num">（{{item.couNum}}门）</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
 </view>
 <view class='loading' wx:if="{{!ready}}">初始中...</view>

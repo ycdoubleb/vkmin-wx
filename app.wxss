@@ -10,6 +10,14 @@
   box-sizing: border-box;
 }
 
+.loading{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
 .right-arrow {
   position: absolute;
   width: 20rpx;
@@ -23,7 +31,7 @@
 }
 
 page{
-    background-color: #F8F8F8;
+    background-color: #F2f2f2;
     font-size: 16px;
     font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }

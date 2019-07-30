@@ -1,28 +1,158 @@
-.container {
-  padding: 20rpx;
-  background: #fff;
-  align-items: stretch;
+/*********************
+ *
+ * 轮播图层
+ * 
+ *********************/
+.carousel{
+  height: 150px;
+  overflow: hidden;
 }
-
-.loading{
+/**滑动刷卡框**/
+.carousel .swiper_box {
   display: flex;
-  width: 100vw;
-  height: 100vh;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-
-/**
- * head
- **/
-
-.head-box {
-  position: relative;
+/**滑动刷卡框图片**/
+.swiper_box .sw_image{
+  width: 100%;
+}
+/*********************
+ *
+ * 推荐课程层
+ * 
+ *********************/
+ .hot_course {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  background: #06a206;
-  border-radius: 5px;
-  color: #ddd;
-  padding: 60rpx;
+  padding:15px 10px 0px; 
+  margin-top: 30px;
+  background-color: #fff;
+}
+/**标题**/
+.hot_course .hot_title {
+  font-size: 16px;
+  text-align: left;
+}
+/**列表**/
+.hot_course .hot_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+/**列表项**/
+.hot_list .hot_list_item {
+  display: flex;
+  flex-direction:row; 
+  justify-content: space-between;
+  padding:10px;
+  border-bottom: 1px #F2f2f2 solid;
+}
+/**缩略图**/
+.hot_list_item .thumb {
+  width: 120px;
+  height: 67px;
+  padding-right: 10px;
+}
+/**课程信息**/
+.hot_list_item .course_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+/**课程名**/
+.course_info .course_name {
+  font-size: 14px;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow:ellipsis;
+}
+/**课程用户**/
+.course_info .course_user {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+/**用户、用户组**/
+.course_user .user,
+.course_user .user_group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/**图标**/
+.course_user .user .user_icon,
+.course_user .user_group .user_group_icon {
+  width: 16px;
+  height: 16px;
+  padding-right: 5px;
+}
+/**昵称、用户数**/
+.course_user .user .nickname,
+.course_user .user_group .user_num {
+  font-size: 12px;
+  color: #999;
+}
+/*********************
+ *
+ * 专题层
+ * 
+ *********************/
+.topic {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding:15px 10px 0px;
+  margin-top: 15px;
+  background-color: #fff;
+}
+/**标题**/
+.topic .topic_title {
+  font-size: 16px;
+  text-align: left;
+}
+/**网格**/
+.topic .topic_grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+ /**网格项**/
+.topic_grid .topic_grid_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0px;
+}
+/**缩略图**/
+.topic_grid_item .thumb {
+  width: 160px;
+  height: 90px;
+}
+/**专题信息**/
+.topic_grid_item .topic_info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/**专题名、课程数**/
+.topic_info .topic_name,
+.topic_info .course_num{
+  margin-top: 5px;
+  font-size: 14px;
+}
+/**专题名**/
+.topic_info .topic_name {
+  width: 110px;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow:ellipsis;
 }
 

@@ -9,7 +9,15 @@ const app = getApp()
 Page({
 
   data: {
-    ready: false,
+    banners: {},
+    recommend_courses: {},
+    topics: {},
+    indicatorDots: true,
+    vertical: false,
+    autoplay: true,
+    interval: 3000,
+    duration: 1000,
+    ready: false
   },
 
   //--------------------------------------------------------------------------------------
@@ -45,8 +53,12 @@ Page({
   ready() {
     // 加载首页数据，比如banner数据，推荐课程，专題
     Api.get(Api.GET_HOME_DATA).then(data =>{
+      console.log(data);
       this.setData({
         ready : true,
+        banners: data.banners,
+        recommend_courses: data.recommend_courses,
+        topics: data.topics
       });
     });
   },
