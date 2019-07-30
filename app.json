@@ -5,7 +5,8 @@
     "pages/setting/setting",
     "pages/topic/detail",
     "pages/course/learning",
-    "pages/course/mycourse"
+    "pages/course/mycourse",
+    "pages/course/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
