@@ -26,7 +26,7 @@ Page({
 
   onUnload: function() {
     // 删除登录事件侦听
-    app.bus.remove(EventName.LOGIN, this);
+    app.getBus().remove(EventName.LOGIN, this);
   },
 
   //------------------------------------------------------------------------
@@ -51,7 +51,7 @@ Page({
   preReady() {
     const user = app.getUser();
     if (!user) {
-      app.bus.on(EventName.LOGIN, this, this.ready);
+      app.getBus().on(EventName.LOGIN, this, this.ready);
     } else {
       if (app.getHasLogin()) this.ready({user});
     }

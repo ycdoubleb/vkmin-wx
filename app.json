@@ -2,7 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/auth/auth",
-    "pages/setting/setting"
+    "pages/setting/setting",
+    "pages/topic/detail",
+    "pages/course/learning",
+    "pages/course/mycourse"
   ],
   "window": {
     "backgroundTextStyle": "light",
