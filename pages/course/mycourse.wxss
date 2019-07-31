@@ -1,1 +1,125 @@
 /* pages/course/mycourse.wxss */
+/*********************
+ *
+ * 学习记录
+ * 
+ *********************/
+.learning{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 145px;
+  background-color: #28b28b;
+  padding: 15px;
+  color: #fff;
+  font-size: 16px; 
+  font-weight: 700;
+}
+/**记录信息**/
+.learning .log{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-left: 30px;
+  font-weight: normal;
+}
+/**学习时间、课程数**/
+.log .time,
+.log .course {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 5px;
+}
+/**学习时间、课程数图标**/
+.log .time image,
+.log .course image{
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+}
+/**学习时间、课程数数字文本**/
+.log .time .font_big,
+.log .course .font_big {
+  margin-right: 5px;
+  font-size: 20px;
+}
+/**学习时间、课程数文字文本**/
+.log .time .font_small,
+.log .course .font_small {
+  font-weight: 14px;
+  color: #E4E4E4;
+}
+/*********************
+ *
+ * 我的课程
+ * 
+ *********************/
+.my_course {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0px 10px; 
+  background-color: #fff;
+}
+/**列表**/
+.my_course .course_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+/**列表项**/
+.course_list .course_list_item {
+  display: flex;
+  flex-direction:row; 
+  justify-content: space-between;
+  padding:10px;
+  border-bottom: 1px #F2f2f2 solid;
+}
+/**缩略图**/
+.course_list_item .thumb {
+  width: 120px;
+  height: 67px;
+  padding-right: 10px;
+}
+/**课程信息**/
+.course_list_item .course_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+/**课程名**/
+.course_info .course_name {
+  width: 160px;
+  font-size: 14px;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow:ellipsis;
+}
+/**开始时间**/
+.course_info .start_time {
+  font-size: 14px;
+  color: #999;
+}
+/**学习时长**/
+.learning_time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/**时长图标**/
+.learning_time .gray_clock{
+  width: 32px;
+  height: 32px;
+}
+/**时长文本**/
+.learning_time text{
+  font-size: 12px;
+  color: #999;
+}

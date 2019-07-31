@@ -1,66 +1,57 @@
 // pages/course/mycourse.js
+import http from '@chunpu/http';
+import util from '../../utils/util.js';
+import Api from '../../utils/api.js';
+
+//获取应用实例
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    ready: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    Object.assign(this.data, options);
+    this.preReady();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
-
+    // 删除登录事件侦听
+    app.getBus().remove(EventName.LOGIN, this);
+  },
+  //--------------------------------------------------------------------------------------
+  //
+  // 自定函数
+  //
+  //--------------------------------------------------------------------------------------
+  /**
+   * 初始准备
+   */
+  preReady() {
+    const user = app.getUser();
+    if (!user) {
+      app.getBus().on(EventName.LOGIN, this, this.ready);
+    } else {
+      if (app.getHasLogin()) this.ready({ user });
+    }
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  ready({user}) {
+    // 加载课程详情
+    Api.get(Api.GET_MY_COURSE, { user_id: user.id }).then(data => {
+      this.setData({
+        ready: true,
+        learningLog: data.learnLog,
+        courseList: data.courses
+      });
+    });
   }
 })

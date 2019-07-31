@@ -1,2 +1,44 @@
 <!--pages/course/mycourse.wxml-->
-<text>pages/course/mycourse.wxml</text>
+<view class="container" wx:if="{{ready}}">
+  <!--学习记录-->
+  <view class="learning">
+    <text>学习记录</text>
+    <view class="log">
+      <view class="time">
+        <image src="/images/icon/clock.png"></image>
+        <text class="font_big">{{learningLog.learning_time}}</text><text class="font_small">分钟</text>
+      </view>
+      <view class="course">
+        <image src="/images/icon/books.png"></image>
+        <text class="font_big">{{learningLog.course_num}}</text><text class="font_small">课</text>
+      </view>
+    </view>
+  </view>
+  <!--我的课程-->
+  <view class="my_course">
+    <!--列表-->
+    <view class="course_list">
+      <block wx:for="{{courseList}}" wx:key>
+        <!--列表项-->
+        <navigator url="/pages/course/detail?id={{item.id}}">
+          <view class="course_list_item">
+            <!--缩略图-->
+            <image src="{{item.thumb}}" class="thumb"></image>
+            <!--课程信息-->
+            <view class="course_info">
+              <!--课程名-->
+              <text class="course_name">{{item.name}}</text>
+              <text class="start_time">{{item.start_time}}</text>
+            </view>
+            <!--学习时长-->
+            <view class="learning_time">
+              <image src="/images/icon/gray_clock.png" class="gray_clock"></image>
+              <text>{{item.learning_time}} 分钟</text>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+</view>
+<view class='loading' wx:if="{{!ready}}">初始中...</view>

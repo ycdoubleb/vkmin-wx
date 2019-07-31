@@ -41,6 +41,8 @@ export default class Api {
   static GET_COURSE_DETAIL = '/v1/vk/get-course-detail';
   // 获取专题详情
   static GET_TOPIC_DETAIL = '/v1/vk/get-topic-detail';
+  // 获取我的课程
+  static GET_MY_COURSE = '/v1/vk/get-my-course';
 
   //------------------------------------------------------------------------------------------
   //
