@@ -37,6 +37,10 @@ export default class Api {
   // vk
   // 获取首页数据
   static GET_HOME_DATA = '/v1/vk/get-home-data';
+  // 获取课程详情
+  static GET_COURSE_DETAIL = '/v1/vk/get-course-detail';
+  // 获取专题详情
+  static GET_TOPIC_DETAIL = '/v1/vk/get-topic-detail';
 
   //------------------------------------------------------------------------------------------
   //

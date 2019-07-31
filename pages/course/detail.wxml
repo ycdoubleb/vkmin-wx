@@ -1,2 +1,26 @@
 <!--pages/course/detail.wxml-->
-<text>pages/course/detail.wxml</text>
+<view class="container" wx:if="{{ready}}">
+  <!--课程缩略图-->
+  <image src="{{courseInfo.cover_url}}" class="course_thumb"></image>
+  <!--课程基本信息-->
+  <view class="basic_info">
+    <!--标题-->
+    <text class="course_title">课程基本信息</text>
+    <!--信息-->
+    <view class="course_info">
+      <text>名称：{{courseInfo.name}}</text>
+    </view>
+  </view>
+  <!--课程简介-->
+  <view class="introduction">
+    <!--标题-->
+    <text class="int_title">课程简介</text>
+    <!--内容-->
+    <view class="int_content">
+      {{courseInfo.introduction}}
+    </view>
+  </view>
+  <!--按钮-->
+  <button class="start_learning" bindtap="learning">开始学习</button>
+</view>
+<view class='loading' wx:if="{{!ready}}">初始中...</view>

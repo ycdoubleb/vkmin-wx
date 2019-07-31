@@ -1,1 +1,80 @@
 /* pages/course/detail.wxss */
+/*********************
+ *
+ * 课程缩略图
+ * 
+ *********************/
+.course_thumb {
+  display: flex;
+  flex-direction: row;
+  height: 200px;
+  width: 100%;
+}
+/*********************
+ *
+ * 课程基本信息
+ * 
+ *********************/
+.basic_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding:15px 10px 0px; 
+  margin-top: 10px;
+  background-color: #fff;
+}
+/**标题**/
+.basic_info .course_title{
+  font-size: 16px;
+  text-align: left;
+}
+/**信息**/
+.basic_info .course_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+}
+/**课程信息文本样式**/
+.course_info text {
+  font-size: 13px;
+  color: #333;
+}
+/*********************
+ *
+ * 课程简介
+ * 
+ *********************/
+.introduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding:15px 10px 0px; 
+  margin-top: 15px;
+  background-color: #fff;
+}
+/**标题**/
+.introduction .int_title{
+  font-size: 16px;
+  text-align: left;
+}
+/**简介内容**/
+.introduction .int_content{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-top: 10px;
+  font-size: 14px;
+  color: #333;
+  text-indent: 2em;
+}
+/**学习按钮**/
+.start_learning{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 0px;
+  background-color: #ff3300;
+}

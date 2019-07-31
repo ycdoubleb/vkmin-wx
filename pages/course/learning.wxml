@@ -1,2 +1,2 @@
 <!--pages/course/learning.wxml-->
-<text>pages/course/learning.wxml</text>
+<web-view src="{{url}}" class="web_view"></web-view>

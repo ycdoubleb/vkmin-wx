@@ -1,2 +1,40 @@
 <!--pages/topic/detail.wxml-->
-<text>pages/topic/detail.wxml</text>
+<view class="container" wx:if="{{ready}}">
+  <!--专题缩略图-->
+  <image src="{{topic.cover_url}}" class="topic_thumb"></image>
+  <!--所有课程-->
+  <view class="topic_course">
+    <!--标题-->
+    <text class="topic_title">所有课程</text>
+    <!--列表-->
+    <view class="topic_list">
+      <block wx:for="{{topicCourses}}" wx:key>
+        <!--列表项-->
+        <navigator url="/pages/course/detail?id={{item.id}}">
+          <view class="topic_list_item">
+            <!--缩略图-->
+            <image src="{{item.thumb}}" class="thumb"></image>
+            <!--课程信息-->
+            <view class="course_info">
+              <!--课程名-->
+              <text class="course_name">{{item.name}}</text>
+              <view class="course_user">
+                <!--用户名-->
+                <view class="user">
+                  <image src="/images/icon/user.png" class="user_icon"></image>
+                  <text class="nickname">{{item.teacher_name}}</text>
+                </view>
+                <!--用户数-->
+                <view class="user_group">
+                  <image src="/images/icon/user_group.png" class="user_group_icon"></image>
+                  <text class="user_num">{{item.learning_count}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+</view>
+<view class='loading' wx:if="{{!ready}}">初始中...</view>
