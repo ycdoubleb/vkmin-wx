@@ -1,18 +1,23 @@
-<view class='container'>
-  <view class='head'>
-    <view class='avatar-box' bindtap='{{user ? null : "onLogin"}}'>
-      <image class='avatar {{user ? "" : "avatar-small"}}' src="{{user ? user.avatar : '/images/icon/unlogin-avatar.png'}}"></image>
+<view class="container">
+  <!--用户基本信息层-->
+  <view class="user_info">
+    <!--头像-->
+    <view class="avatar {{user ? null : 'un_login'}}" bindtap="{{user ? null : 'onLogin'}}">
+      <image src="{{user ? user.avatar : '/images/icon/unlogin-avatar.png'}}" class="img_circle"></image>
     </view>
-    <text>{{user ? user.nickname : '请点击登录'}}</text>
+    <!--昵称-->
+    <view class="nickname"><text>{{user ? user.nickname : '请点击登录'}}</text></view>
   </view>
-  <view class='weui-cells body'>
-    <view class="weui-cell weui-cell_input weui-cell_vcode">
-      <view class="weui-cell__hd">
-        <view class="weui-label">我的课程</view>
-      </view>
-      <view class="weui-cell__bd">
-        <view class='weui-select'></view>
-      </view>
-    </view>
+  <!--用户列表-->
+  <view class="user_list">
+    <block wx:for="{{userList}}" wx:key>
+      <!--列表项-->
+      <navigator url="{{item.url}}">
+        <view class="user_list_item">
+          <text class="title">{{item.title}}</text>
+          <image src="{{item.icon}}" class="arrow_icon"></image>
+        </view>
+      </navigator>
+    </block>
   </view>
 </view>

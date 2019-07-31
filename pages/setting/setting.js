@@ -10,7 +10,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    user: null
+    user: null,
+    userList: [
+      {
+        title: '我的课程',
+        icon: '/images/icon/right_arrow.png',
+        url: '/pages/course/mycourse'
+      }
+    ]
   },
   //------------------------------------------------------------------------
   //

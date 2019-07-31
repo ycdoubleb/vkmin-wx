@@ -1,40 +1,79 @@
-.container {
-  justify-content: flex-start;
-}
-
-.head {
+/*********************
+ *
+ * 用户信息
+ * 
+ *********************/
+.user_info{
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #28b28b;
+}
+/**头像、昵称**/
+.user_info .avatar,
+.user_info .nickname {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 500rpx;
-  background: #28b28b;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+/**没登录的样式**/
+.user_info .un_login {
+  width: 96px;
+  height: 96px;
+  padding: 2px;
+  border-radius: 50%;
+  border: 1px #fff solid;
+}
+/**圆形头像**/
+.avatar .img_circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+}
+/**没有登录的情况下头像大小**/
+.un_login .img_circle {
+  width: 80px;
+  height: 80px;
+}
+
+/**昵称文本**/
+.nickname text{
+  font-size: 14px;
   color: #fff;
 }
-
-.avatar-box {
+/*********************
+ *
+ * 用户列表
+ * 
+ *********************/
+.user_list {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/**列表项**/
+.user_list .user_list_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  width: 96px;
-  height: 96px;
-  border: solid 1px #e4e4e4;
-  border-radius: 48px;
-  margin-bottom: 5px;
+  padding: 10px;
+  border-bottom: 1px #F2f2f2 solid;
+  background-color: #fff;
 }
-
-.avatar {
-  width: 96px;
-  height: 96px;
-  border-radius: 48px;
+/**标题**/
+.user_list_item .title{
+  font-size: 17px;
+  color: #000;
 }
-
-.avatar-small{
-  width: 76px;
-  height: 76px;
-  border-radius: 38px;
-}
-
-.body {
-  margin: 0;
+/**箭头**/
+.user_list_item .arrow_icon{
+  width: 8px;
+  height: 12px;
 }

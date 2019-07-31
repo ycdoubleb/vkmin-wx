@@ -2,8 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/auth/auth",
-    "pages/setting/setting",
     "pages/topic/detail",
+    "pages/setting/setting",
     "pages/course/learning",
     "pages/course/mycourse",
     "pages/course/detail"
