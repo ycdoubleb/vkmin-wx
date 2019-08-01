@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "我"
+  "usingComponents": {
+    "navbar": "/components/navigation/navigation"
+  }
 }

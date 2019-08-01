@@ -6,13 +6,15 @@
     "pages/setting/setting",
     "pages/course/learning",
     "pages/course/mycourse",
-    "pages/course/detail"
+    "pages/course/detail",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "微课平台",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
   },
   "tabBar": {
     "borderStyle": "white",

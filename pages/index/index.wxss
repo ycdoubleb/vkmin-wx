@@ -111,6 +111,7 @@
   justify-content: space-between;
   padding:15px 10px 0px;
   margin-top: 15px;
+  margin-bottom: 10px;
   background-color: #fff;
 }
 /**标题**/

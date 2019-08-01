@@ -1,4 +1,6 @@
 <!--pages/topic/detail.wxml-->
+<!--导航层-->
+<navbar title="专题" isShow="true"></navbar>
 <view class="container" wx:if="{{ready}}">
   <!--专题缩略图-->
   <image src="{{topic.cover_url}}" class="topic_thumb"></image>

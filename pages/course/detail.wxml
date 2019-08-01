@@ -1,4 +1,6 @@
 <!--pages/course/detail.wxml-->
+<!--导航层-->
+<navbar title="课程首页" isShow="true"></navbar>
 <view class="container" wx:if="{{ready}}">
   <!--课程缩略图-->
   <image src="{{courseInfo.cover_url}}" class="course_thumb"></image>

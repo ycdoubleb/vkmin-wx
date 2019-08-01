@@ -1,4 +1,6 @@
 <!--pages/course/mycourse.wxml-->
+<!--导航层-->
+<navbar title="我的课程" isShow="true"></navbar>
 <view class="container" wx:if="{{ready}}">
   <!--学习记录-->
   <view class="learning">

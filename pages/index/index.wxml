@@ -1,3 +1,5 @@
+<!--导航层-->
+<navbar title="首页" isShowSearch="true"></navbar>
 <view class='container' wx:if="{{ready}}">
   <!--轮播图层-->
   <view class="carousel">

@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "课程首页"
+  "usingComponents": {
+    "navbar": "/components/navigation/navigation"
+  }
 }

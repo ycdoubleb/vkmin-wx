@@ -25,7 +25,7 @@ Page({
 
   onUnload: function () {
     // 删除登录事件侦听
-    app.getBus().remove(EventName.LOGIN, this);
+    // app.getBus().remove(EventName.LOGIN, this);
   },
   //--------------------------------------------------------------------------------------
   //
