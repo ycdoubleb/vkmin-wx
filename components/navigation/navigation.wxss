@@ -1,0 +1,63 @@
+/* components/navigationBar/navigation.wxss */
+/**导航**/
+.navbar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  transform: translateZ(0); 
+}
+/**搜索框**/
+.navbar .search_box{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: center;
+  width: 60%;
+  padding: 1px 6px;
+  border-width: 1px;
+  border-style: solid; 
+  border-radius: 15px;
+}
+/**搜索框文本**/
+.navbar .search_box text{
+  padding-left: 5px;
+  font-size:12px; 
+}
+/**图标组**/
+.navbar .icon_group {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  left: 10px;
+  width: 85px;
+  height: 30px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 15px;
+}
+/**图标**/
+.navbar .icon_group image{
+  width: 20px;
+  height: 20px;
+}
+/**分界线**/
+.navbar .icon_group .dividing_line {
+  width: 1px;
+  height: 18px;
+}
+/**标题**/
+.navbar .title{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}

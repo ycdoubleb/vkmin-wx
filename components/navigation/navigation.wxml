@@ -1,0 +1,17 @@
+<!--components/navigationBar/navigation.wxml-->
+<view class="navbar" style="height:{{navBarHeight}}px;padding-top:{{statusBarHeight}}px;background-color:{{navBarBgColor}}">
+    <!--搜索框-->
+    <view bindtap="{{'goSearch'}}" class="search_box" style="border-color:{{searchBoxBorderColor}};background-color:{{searchBoxBgColor}}" wx:if="{{isShowSearch}}">
+      <icon type="search" size="10"></icon><text style="color:{{searchTipsColor}}">搜名或关键字</text>
+    </view>
+    <!--图标-->
+    <view wx:if="{{isShow}}" class="icon_group" style="border-color:{{iconBorderColor}}">  
+      <image bindtap="{{'goBack'}}" src="/images/icon/back.png"></image>      
+      <view class="dividing_line" style="background-color:{{dividBgColor}}"></view>
+      <image bindtap="{{'goHome'}}" src="/images/icon/home.png"></image> 
+    </view>
+    <!--标题-->
+    <view class="title" style="color:{{titleTextColor}};font-size:{{titleFontSize}}px" wx:if="{{!isShowSearch}}">{{title}}</view>
+</view>
+
+
