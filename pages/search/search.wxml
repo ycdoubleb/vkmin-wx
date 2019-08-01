@@ -1,0 +1,6 @@
+<!--pages/search/search.wxml-->
+<!--导航层-->
+<navbar title="搜索" isShow="true"></navbar>
+<view class="container" wx:if="{{ready}}">
+</view>
+<view class='loading' wx:if="{{!ready}}">初始中...</view>
