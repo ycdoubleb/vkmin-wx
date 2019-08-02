@@ -1,1 +1,140 @@
 /* pages/search/search.wxss */
+/**搜索框部分**/
+.search_box_section{
+  position: relative;
+  margin: 25px 10px;
+  margin-right: 45px;
+  border: 1px #fafafa solid;
+  border-radius: 25px;
+  background-color: #fafafa;
+}
+/**输入框样式**/
+.search_box_section input {
+  font-size: 12px;
+  padding-top: 2px;
+  padding-right: 25px;
+  padding-bottom: 2px;
+  padding-left: 10px;
+  text-align: center;
+}
+/**图标**/
+.search_box_section icon{
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  z-index: 1030;
+}
+/**修改按钮样式**/
+.search_box_section button{
+  position: absolute;
+  top: 5px;
+  right: -35px;
+  font-size: 13px;
+  border-radius: 0px;
+  padding: 0px;
+  line-height: normal;
+  background-color: transparent;
+}
+/**去掉按钮边框**/
+.search_box_section button::after{
+   border: none
+}
+/**搜索结果部分**/
+.search_result_section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+}
+/**搜索结果标题**/
+.search_result_section .title{
+  font-size: 16px;
+  color: #333;
+}
+/**复选框label样式**/
+.search_result_section label{
+  align-items: center;
+  margin-left: 5px;
+  font-size: 13px;
+  color: #333;
+}
+/**复选框大小**/
+.search_result_section label>checkbox {
+  transform: scale(0.6,0.6);
+}
+/**结果列表**/
+.result_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px; 
+  background-color: #fff;
+}
+/**列表项**/
+.result_list .result_list_item {
+  position: relative;
+  display: flex;
+  flex-direction:row; 
+  justify-content: space-between;
+  padding:10px;
+  margin-left: -10px;
+  margin-right: -10px;
+  border-bottom: 1px #F2f2f2 solid;
+}
+/**缩略图**/
+.result_list_item .thumb {
+  width: 120px;
+  height: 67px;
+  padding-right: 10px;
+}
+/**专题图标**/
+.result_list_item .topic_icon{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 6px;
+  margin-top: 1px;
+  margin-left: 1px;
+  font-size: 12px;
+  color: #fff;
+  border: 0.5px #fff solid;
+  border-radius: 12px;
+  background-color: #ff3300;
+}
+/**结果信息**/
+.result_list_item .result_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+/**结果名**/
+.result_info .result_name {
+  width: 210px;
+  font-size: 14px;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow:ellipsis;
+}
+/**用户组**/
+.result_info .user_group {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+/**图标**/
+.result_info .user_group .user_group_icon {
+  width: 16px;
+  height: 16px;
+  padding-right: 5px;
+}
+/**用户数**/
+.result_info .user_group .user_num {
+  font-size: 12px;
+  color: #999;
+}

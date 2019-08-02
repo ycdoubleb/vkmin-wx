@@ -63,3 +63,10 @@ page{
     text-align: left;
     font-size: 14px;
 }
+
+.no_more{
+  margin-bottom: 15px;
+  font-size: 13px;
+  color:red;
+  text-align: center;
+}

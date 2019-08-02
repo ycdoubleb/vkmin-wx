@@ -10,6 +10,8 @@
     <text class="topic_title">所有课程</text>
     <!--列表-->
     <view class="topic_list">
+      <!--没有数据-->
+      <view class="no_more" wx:if="{{topicCourses == ''}}">没有数据</view>
       <block wx:for="{{topicCourses}}" wx:key>
         <!--列表项-->
         <navigator url="/pages/course/detail?id={{item.id}}">

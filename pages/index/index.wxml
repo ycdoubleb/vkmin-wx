@@ -18,6 +18,8 @@
     <text class="hot_title">推荐课程</text>
     <!--列表-->
     <view class="hot_list">
+      <!--没有数据-->
+      <view class="no_more" wx:if="{{recommend_courses == ''}}">没有数据</view>
       <block wx:for="{{recommend_courses}}" wx:key>
         <!--列表项-->
         <navigator url="/pages/course/detail?id={{item.id}}">
@@ -52,6 +54,8 @@
     <text class="topic_title">专题</text>
     <!--网格-->
     <view class="topic_grid">
+      <!--没有数据-->
+      <view class="no_more" style="width:100%" wx:if="{{topics == ''}}">没有数据</view>
       <block wx:for="{{topics}}" wx:key>
         <navigator url="/pages/topic/detail?id={{item.id}}">
           <!--网格项-->

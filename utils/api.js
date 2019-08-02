@@ -43,6 +43,8 @@ export default class Api {
   static GET_TOPIC_DETAIL = '/v1/vk/get-topic-detail';
   // 获取我的课程
   static GET_MY_COURSE = '/v1/vk/get-my-course';
+  // 获取搜索信息
+  static GET_SEARCH_INFO = '/v1/vk/get-search-info';
 
   //------------------------------------------------------------------------------------------
   //
@@ -120,7 +122,7 @@ export default class Api {
   }
 
   /**
-   * get 请求
+   * post 请求
    * 
    * @param String url   接口地址,不带http://自动加上公共url
    * @param Object data postdata

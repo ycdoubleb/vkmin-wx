@@ -9,15 +9,14 @@ const app = getApp()
 Page({
 
   data: {
-    banners: {},
-    recommend_courses: {},
-    topics: {},
     indicatorDots: true,
     vertical: false,
     autoplay: true,
     interval: 3000,
     duration: 1000,
-    ready: false
+    ready: false,
+    recommend_courses: '',
+    topics: ''
   },
 
   //--------------------------------------------------------------------------------------

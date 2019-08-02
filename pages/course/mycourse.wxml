@@ -20,6 +20,8 @@
   <view class="my_course">
     <!--列表-->
     <view class="course_list">
+      <!--没有数据-->
+      <view class="no_more" style="margin-top:15px" wx:if="{{courseList == ''}}">没有数据</view>
       <block wx:for="{{courseList}}" wx:key>
         <!--列表项-->
         <navigator url="/pages/course/detail?id={{item.id}}">

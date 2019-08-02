@@ -13,6 +13,7 @@ Page({
    */
   data: {
     ready: false,
+    courseList: ''
   },
 
   /**

@@ -1,6 +1,49 @@
 <!--pages/search/search.wxml-->
 <!--导航层-->
 <navbar title="搜索" isShow="true"></navbar>
-<view class="container" wx:if="{{ready}}">
+<view class="container">
+  <!--表单-->
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <!--搜索框-->
+    <view class="section search_box_section">
+      <input id="keyword" name="keyword" type="text" confirm-type="search" placeholder="搜名或关键字" bindinput="bindInput" value="{{searchInput}}"/>
+      <icon type="clear" size="15" bindtap="clearContent" wx:if="{{isShowClear}}"></icon>
+      <button form-type="submit">搜索</button>
+    </view>
+    <!--搜索结果-->
+    <view class="section search_result_section">
+      <text class="title">搜索结果</text>
+      <view class="section section_gap">
+        <checkbox-group name="search_type">
+          <label><checkbox value="1" checked="true" />课程</label>
+          <label><checkbox value="2" checked="true" />专题</label>
+        </checkbox-group>
+      </view>
+    </view>
+  </form>
+  <!--结果列表-->
+  <view class="result_list">
+    <!--没有数据-->
+    <view class="no_more" wx:if="{{resultList == ''}}">没有数据</view>
+    <block wx:for="{{resultList}}" wx:key>
+      <navigator url="{{item.search_typ == '1' ? '/pages/course/detail?id=' : '/pages/topic/detail?id='}}{{item.id}}">
+        <!--列表项-->
+        <view class="result_list_item">
+            <!--缩略图-->
+            <image src="{{item.thumb}}" class="thumb"></image>
+            <view class="topic_icon" wx:if="{{item.search_typ == '2'}}">专题</view>
+            <!--结果信息-->
+            <view class="result_info">
+              <!--课程名-->
+              <text class="result_name">{{item.name}}</text>
+              <!--用户数-->
+                <view class="user_group">
+                  <image src="/images/icon/user_group.png" class="user_group_icon"></image>
+                  <text class="user_num">{{item.learning_count}}</text>
+                </view>
+            </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
 </view>
-<view class='loading' wx:if="{{!ready}}">初始中...</view>
