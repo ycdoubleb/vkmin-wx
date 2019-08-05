@@ -1,7 +1,8 @@
 /* components/navigationBar/navigation.wxss */
 /**导航**/
 .navbar {
-  position: relative;
+  position: fixed;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -9,6 +10,7 @@
   padding-left: 10px;
   padding-right: 10px;
   transform: translateZ(0); 
+  z-index: 1030;
 }
 /**搜索框**/
 .navbar .search_box{

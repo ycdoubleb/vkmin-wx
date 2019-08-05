@@ -25,25 +25,29 @@
   <view class="result_list">
     <!--没有数据-->
     <view class="no_more" wx:if="{{resultList == ''}}">没有数据</view>
-    <block wx:for="{{resultList}}" wx:key>
-      <navigator url="{{item.search_typ == '1' ? '/pages/course/detail?id=' : '/pages/topic/detail?id='}}{{item.id}}">
-        <!--列表项-->
-        <view class="result_list_item">
-            <!--缩略图-->
-            <image src="{{item.thumb}}" class="thumb"></image>
-            <view class="topic_icon" wx:if="{{item.search_typ == '2'}}">专题</view>
-            <!--结果信息-->
-            <view class="result_info">
-              <!--课程名-->
-              <text class="result_name">{{item.name}}</text>
-              <!--用户数-->
-                <view class="user_group">
-                  <image src="/images/icon/user_group.png" class="user_group_icon"></image>
-                  <text class="user_num">{{item.learning_count}}</text>
-                </view>
-            </view>
-        </view>
-      </navigator>
-    </block>
+    <!-- <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower"> -->
+      <block wx:for="{{resultList}}" wx:key>
+        <navigator url="{{item.search_typ == '1' ? '/pages/course/detail?id=' : '/pages/topic/detail?id='}}{{item.id}}">
+          <!--列表项-->
+          <view class="result_list_item">
+              <!--缩略图-->
+              <image src="{{item.thumb}}" class="thumb"></image>
+              <view class="topic_icon" wx:if="{{item.search_typ == '2'}}">专题</view>
+              <!--结果信息-->
+              <view class="result_info">
+                <!--课程名-->
+                <text class="result_name">{{item.name}}</text>
+                <!--用户数-->
+                  <view class="user_group">
+                    <image src="/images/icon/user_group.png" class="user_group_icon"></image>
+                    <text class="user_num">{{item.learning_count}}</text>
+                  </view>
+              </view>
+          </view>
+        </navigator>
+      </block>
+      <!-- <view class="" hidden="{{!loadMore}}">正在载入更多...</view>
+      <view class="" hidden="{{!noMore}}">已加载全部</view> -->
+    <!-- </scroll-view> -->
   </view>
 </view>

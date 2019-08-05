@@ -12,8 +12,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    courseList: [],
+    page: 1,
+    pageSize: 6,
     ready: false,
-    courseList: ''
+    hasMoreData: true
   },
 
   /**
@@ -23,10 +26,19 @@ Page({
     Object.assign(this.data, options);
     this.preReady();
   },
-
-  onUnload: function () {
-    // 删除登录事件侦听
-    // app.getBus().remove(EventName.LOGIN, this);
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    if (this.data.hasMoreData) {
+      this.fetchCourseResult();
+    } else {
+      wx.showToast({
+        title: '没有数据',
+        icon: 'none',
+        duration: 2000
+      })
+    }
   },
   //--------------------------------------------------------------------------------------
   //
@@ -37,22 +49,42 @@ Page({
    * 初始准备
    */
   preReady() {
-    const user = app.getUser();
-    if (!user) {
-      app.getBus().on(EventName.LOGIN, this, this.ready);
+    if (!app.getHasLogin()) {
+      app.auth().then(() => {
+        this.fetchCourseResult();
+      });
     } else {
-      if (app.getHasLogin()) this.ready({ user });
+      this.fetchCourseResult();
     }
   },
-
-  ready({user}) {
-    // 加载课程详情
-    Api.get(Api.GET_MY_COURSE, { user_id: user.id }).then(data => {
-      this.setData({
-        ready: true,
-        learningLog: data.learnLog,
-        courseList: data.courses
-      });
+  /**
+   * 加载所有专题课程
+   */
+  fetchCourseResult: function () {
+    Api.get(Api.GET_MY_COURSE, {
+      user_id: app.getUser().id,
+      page: this.data.page,
+      limit: this.data.pageSize
+    }).then(data => {
+      var resultListTem = this.data.courseList;
+      if (this.data.page == 1) {
+        resultListTem = [];
+      }
+      var resultList = data.courses;
+      // 如果resultList小于每页个数则不加载
+      if (resultList.length < this.data.pageSize) {
+        this.setData({
+          ready: true,
+          learningLog: data.learnLog,
+          courseList: resultListTem.concat(resultList),
+          hasMoreData: false,
+        })
+      } else {
+        this.setData({
+          courseList: resultListTem.concat(resultList),
+          page: this.data.page + 1
+        })
+      }
     });
-  }
+  },
 })

@@ -12,8 +12,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topicCourses: [],
+    page: 1,
+    pageSize: 6,
     ready: false,
-    topicCourses: ''
+    hasMoreData: true
   },
 
   /**
@@ -21,14 +24,21 @@ Page({
    */
   onLoad: function (options) {
     Object.assign(this.data, options);
-    this.ready();
+    this.fetchTopicResult();
   },
-
   /**
-   * 卸载页面
+   * 页面上拉触底事件的处理函数
    */
-  onUnload: function () {
-    // 删除登录事件侦听
+  onReachBottom: function () {
+    if (this.data.hasMoreData) {
+      this.fetchTopicResult();
+    } else {
+      wx.showToast({
+        title: '没有数据',
+        icon: 'none',
+        duration: 2000
+      })
+    }
   },
   //--------------------------------------------------------------------------------------
   //
@@ -39,18 +49,35 @@ Page({
   //
   // 自定函数
   //
-  //--------------------------------------------------------------------------------------
+  //-------------------------------------------------------------------------------------
   /**
-   * 
+   * 加载所有专题课程
    */
-  ready() {
-    // 加载课程详情
-    Api.get(Api.GET_TOPIC_DETAIL, {topic_id: this.data.id}).then(data => {
-      this.setData({
-        ready: true,
-        topic: data.topic,
-        topicCourses: data.courses
-      });
+  fetchTopicResult: function () {
+    Api.get(Api.GET_TOPIC_DETAIL, { 
+        topic_id: this.data.id,
+        page: this.data.page,
+        limit: this.data.pageSize
+      }).then(data => {
+      var resultListTem = this.data.topicCourses;
+      if (this.data.page == 1) {
+        resultListTem = [];
+      }
+      var resultList = data.courses;
+      // 如果resultList小于每页个数则不加载
+      if (resultList.length < this.data.pageSize) {
+        this.setData({
+          ready: true,
+          topic: data.topic,
+          topicCourses: resultListTem.concat(resultList),
+          hasMoreData: false,
+        })
+      } else {
+        this.setData({
+          topicCourses: resultListTem.concat(resultList),
+          page: this.data.page + 1
+        })
+      }
     });
-  }
+  },
 })

@@ -45,6 +45,8 @@ export default class Api {
   static GET_MY_COURSE = '/v1/vk/get-my-course';
   // 获取搜索信息
   static GET_SEARCH_INFO = '/v1/vk/get-search-info';
+  // 保存学习记录
+  static SAVE_LEARNING = '/v1/vk/save-learning';
 
   //------------------------------------------------------------------------------------------
   //

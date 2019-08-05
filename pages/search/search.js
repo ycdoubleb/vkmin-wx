@@ -11,25 +11,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ready: false,
-    isShowClear: false,
     searchInput: '',
-    resultList: ''
+    searchType: [],
+    resultList: [],
+    page: 1,
+    pageSize: 6,
+    isShowClear: false,
+    hasMoreData: true
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     Object.assign(this.data, options);
-    // this.ready();
   },
-
   /**
-   * 卸载页面
+   * 页面上拉触底事件的处理函数
    */
-  onUnload: function () {
-    // 删除登录事件侦听
+  onReachBottom: function(){
+    if (this.data.hasMoreData){
+      this.fetchSearchResult();
+    }else{
+      wx.showToast({
+        title: '没有数据',
+        icon: 'none',
+        duration: 2000
+      })
+    }
   },
   //--------------------------------------------------------------------------------------
   //
@@ -40,9 +48,13 @@ Page({
    * 提交表单
    */
   formSubmit: function (e) {
-    Api.get(Api.GET_SEARCH_INFO, e.detail.value).then(data => {
-      this.ready({data});
+    this.setData({
+      searchInput: e.detail.value.keyword,
+      searchType: e.detail.value.search_type,
+      page: 1,
+      hasMoreData: true,
     });
+    this.fetchSearchResult();
   },
   /**
    * 输入时显示
@@ -69,13 +81,32 @@ Page({
   //
   //--------------------------------------------------------------------------------------
   /**
-   * 
+   * 获取搜索结果
    */
-  ready({data}) {
-    // 加载数据
-    this.setData({
-      ready: true,
-      resultList: data.resultList,
+  fetchSearchResult: function(){
+    Api.get(Api.GET_SEARCH_INFO, {
+      keyword: this.data.searchInput,
+      search_type: this.data.searchType,
+      page: this.data.page,
+      limit: this.data.pageSize
+    }).then(data => {
+      var resultListTem = this.data.resultList;
+      if (this.data.page == 1){
+        resultListTem = [];
+      }
+      var resultList = data.results.list;
+      // 如果resultList小于每页个数则不加载
+      if (resultList.length < this.data.pageSize){
+        this.setData({
+          resultList: resultListTem.concat(resultList),
+          hasMoreData: false,
+        })
+      }else{
+        this.setData({
+          resultList: resultListTem.concat(resultList),
+          page: this.data.page + 1
+        })
+      }
     });
-  }
+  },
 })

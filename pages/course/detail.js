@@ -39,7 +39,7 @@ Page({
    */
   learning: function(){
     wx.navigateTo({
-      url: "/pages/course/learning?file="+this.data.courseInfo.url,
+      url: "/pages/course/learning?course_id=" + this.data.courseInfo.id+"&file="+this.data.courseInfo.url,
     })
   },
   //--------------------------------------------------------------------------------------
