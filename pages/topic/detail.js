@@ -74,8 +74,10 @@ Page({
         })
       } else {
         this.setData({
+          ready: true,
+          topic: data.topic,
           topicCourses: resultListTem.concat(resultList),
-          page: this.data.page + 1
+          page: this.data.page + 1,
         })
       }
     });
