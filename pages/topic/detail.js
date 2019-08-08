@@ -22,9 +22,7 @@ Page({
    */
   onLoad: function(options) {
     Object.assign(this.data, options);
-    app.ready(() => {
-      this.fetchTopicResult();
-    })
+    this.fetchTopicResult();
   },
   /**
    * 页面上拉触底事件的处理函数
