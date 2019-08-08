@@ -20,14 +20,16 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     Object.assign(this.data, options);
-    this.fetchTopicResult();
+    app.ready(() => {
+      this.fetchTopicResult();
+    })
   },
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
     if (this.data.hasMoreData) {
       this.fetchTopicResult();
     } else {
@@ -51,12 +53,12 @@ Page({
   /**
    * 加载所有专题课程
    */
-  fetchTopicResult: function () {
-    Api.get(Api.GET_TOPIC_DETAIL, { 
-        topic_id: this.data.id,
-        page: this.data.page,
-        limit: this.data.pageSize
-      }).then(data => {
+  fetchTopicResult: function() {
+    Api.get(Api.GET_TOPIC_DETAIL, {
+      topic_id: this.data.id,
+      page: this.data.page,
+      limit: this.data.pageSize
+    }).then(data => {
       var resultListTem = this.data.topicCourses;
       if (this.data.page == 1) {
         resultListTem = [];
