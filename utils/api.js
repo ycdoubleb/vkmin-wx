@@ -1,4 +1,4 @@
-import http from '@chunpu/http';
+import http from 'http.js';
 import md5 from 'md5.js';
 import util from 'util';
 

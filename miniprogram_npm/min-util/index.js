@@ -1,14 +1,14 @@
 module.exports = (function() {
 var __MODS__ = {};
 var __DEFINE__ = function(modId, func, req) { var m = { exports: {} }; __MODS__[modId] = { status: 0, func: func, req: req, m: m }; };
-var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = { exports: {} }; __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); if(typeof m.exports === "object") { Object.keys(m.exports).forEach(function(k) { __MODS__[modId].m.exports[k] = m.exports[k]; }); if(m.exports.__esModule) Object.defineProperty(__MODS__[modId].m.exports, "__esModule", { value: true }); } else { __MODS__[modId].m.exports = m.exports; } } return __MODS__[modId].m.exports; };
+var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = { exports: {} }; __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); if(typeof m.exports === "object") { __MODS__[modId].m.exports.__proto__ = m.exports.__proto__; Object.keys(m.exports).forEach(function(k) { __MODS__[modId].m.exports[k] = m.exports[k]; Object.defineProperty(m.exports, k, { set: function(val) { __MODS__[modId].m.exports[k] = val; }, get: function() { return __MODS__[modId].m.exports[k]; } }); }); if(m.exports.__esModule) Object.defineProperty(__MODS__[modId].m.exports, "__esModule", { value: true }); } else { __MODS__[modId].m.exports = m.exports; } } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1556604080705, function(require, module, exports) {
+__DEFINE__(1565255369141, function(require, module, exports) {
 module.exports = require('./src')
 
-}, function(modId) {var map = {"./src":1556604080706}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1556604080706, function(require, module, exports) {
+}, function(modId) {var map = {"./src":1565255369142}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1565255369142, function(require, module, exports) {
 var cou = require('cou')
 
 module.exports = cou.extend(_, cou)
@@ -29,8 +29,8 @@ function _(val) {
   this.__chain = false
 }
 
-}, function(modId) { var map = {"./lang":1556604080707,"./util":1556604080708,"./array":1556604080709,"./object":1556604080710,"./function":1556604080711,"./string":1556604080713,"./math":1556604080714}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1556604080707, function(require, module, exports) {
+}, function(modId) { var map = {"./lang":1565255369143,"./util":1565255369144,"./array":1565255369145,"./object":1565255369146,"./function":1565255369147,"./string":1565255369149,"./math":1565255369150}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1565255369143, function(require, module, exports) {
 module.exports = function(_) {
 
 var is = _.is
@@ -68,7 +68,7 @@ _.isUndefined = is.undef
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1556604080708, function(require, module, exports) {
+__DEFINE__(1565255369144, function(require, module, exports) {
 module.exports = function(_) {
 
 var is = _.is
@@ -142,7 +142,7 @@ _.uniqueId = function(prefix) {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1556604080709, function(require, module, exports) {
+__DEFINE__(1565255369145, function(require, module, exports) {
 module.exports = function(_) {
 
 var each = _.forEach = _.each
@@ -434,7 +434,7 @@ function mutateDifference(arr, indexes) {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1556604080710, function(require, module, exports) {
+__DEFINE__(1565255369146, function(require, module, exports) {
 module.exports = function(_) {
 
 var is = _.is
@@ -623,7 +623,7 @@ function toPath(val) {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1556604080711, function(require, module, exports) {
+__DEFINE__(1565255369147, function(require, module, exports) {
 module.exports = function(_) {
 
 var is = _.is
@@ -796,8 +796,8 @@ _.curry = function(fn) {
 
 }
 
-}, function(modId) { var map = {"./cache":1556604080712}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1556604080712, function(require, module, exports) {
+}, function(modId) { var map = {"./cache":1565255369148}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1565255369148, function(require, module, exports) {
 var cou = require('cou')
 var is = cou.is
 
@@ -826,7 +826,7 @@ proto['delete'] = function(key) {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1556604080713, function(require, module, exports) {
+__DEFINE__(1565255369149, function(require, module, exports) {
 module.exports = function(_) {
 
 _.tostr = _.toString = tostr // lodash toString
@@ -970,7 +970,7 @@ function tostr(str) {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1556604080714, function(require, module, exports) {
+__DEFINE__(1565255369150, function(require, module, exports) {
 module.exports = function(_) {
 
 _.sum = function(arr) {
@@ -1016,6 +1016,6 @@ _.min = function(arr, fn) {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1556604080705);
+return __REQUIRE__(1565255369141);
 })()
 //# sourceMappingURL=index.js.map

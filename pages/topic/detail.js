@@ -1,5 +1,3 @@
-// pages/topic/detail.js
-import http from '@chunpu/http';
 import util from '../../utils/util.js';
 import Api from '../../utils/api.js';
 

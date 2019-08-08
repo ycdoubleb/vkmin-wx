@@ -1,7 +1,6 @@
-// pages/course/learning.js
-import http from '@chunpu/http';
 import util from '../../utils/util.js';
 import Api from '../../utils/api.js';
+import {EventName} from '../../utils/event.js';
 
 const app = getApp();
 
@@ -19,28 +18,26 @@ Page({
    */
   onLoad: function (options) {
     Object.assign(this.data, options);
-    this.preReady();
+    app.ready(() => {
+      if (!app.checkUserAuth(true)) {
+        app.getBus().on(EventName.USER_CHANGED, this, this.ready);
+      } else {
+        this.ready();
+      }
+    });
+  },
+
+  onUnload: function () {
+    // 删除登录事件侦听
+    app.getBus().remove(EventName.USER_CHANGED, this);
   },
   //--------------------------------------------------------------------------------------
   //
   // 自定函数
   //
   //--------------------------------------------------------------------------------------
-  /**
-   * 初始准备
-   */
-  preReady() {
-    // 判断是否已经登录，如果未登录则先登录
-    if (!app.getHasLogin()) {
-      app.auth().then(() => {
-        this.ready();
-      });
-    }else{
-      this.ready();
-    }
-  },
   ready() {
-    // 获取用户信息
+    console.log('ready!!!!');
     const user = app.getUser();
     // 保存学习记录
     Api.post(Api.SAVE_LEARNING, { 

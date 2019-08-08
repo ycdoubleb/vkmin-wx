@@ -27,13 +27,21 @@ Page({
   /**
    * 监听页面加载
    */
-  onLoad: function(options) {
-    this.preReady();
+  onLoad: function (options) {
+    app.ready(() => {
+      if (!app.checkUserAuth()) {
+        app.getBus().on(EventName.USER_CHANGED, this, this.ready);
+      } else {
+        this.ready({
+          user: app.getUser()
+        });
+      }
+    });
   },
 
-  onUnload: function() {
+  onUnload: function () {
     // 删除登录事件侦听
-    app.getBus().remove(EventName.LOGIN, this);
+    app.getBus().remove(EventName.USER_CHANGED, this);
   },
 
   //------------------------------------------------------------------------
@@ -44,27 +52,17 @@ Page({
   /**
    * 登录操作
    */
-  onLogin: function(e) {
-    app.auth();
+  onLogin: function (e) {
+    app.checkUserAuth(true);
   },
   //------------------------------------------------------------------------
   //
   // 方法
   //
   //------------------------------------------------------------------------
-  /**
-   * 初始准备
-   */
-  preReady() {
-    const user = app.getUser();
-    if (!user) {
-      app.getBus().on(EventName.LOGIN, this, this.ready);
-    } else {
-      if (app.getHasLogin()) this.ready({user});
-    }
-  },
-
-  ready({user}) {
+  ready({
+    user
+  }) {
     this.setData({
       user
     });
