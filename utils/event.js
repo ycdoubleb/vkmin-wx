@@ -3,6 +3,8 @@ export class EventName {
   static LOGIN = 'login';
   // 登出成功
   static LOGOUT = 'logout';
+  // 用户改变，用户由未授权到授权状态的改变会触发 该事件
+  static USER_CHANGED = 'userChanged';
 }
 
 export default class EventBus {

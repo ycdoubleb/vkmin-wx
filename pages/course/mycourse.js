@@ -1,5 +1,3 @@
-// pages/course/mycourse.js
-import http from '@chunpu/http';
 import util from '../../utils/util.js';
 import Api from '../../utils/api.js';
 
@@ -24,7 +22,9 @@ Page({
    */
   onLoad: function (options) {
     Object.assign(this.data, options);
-    this.preReady();
+    app.ready(()=>{
+      this.fetchCourseResult();
+    })
   },
   /**
    * 页面上拉触底事件的处理函数
@@ -45,18 +45,6 @@ Page({
   // 自定函数
   //
   //--------------------------------------------------------------------------------------
-  /**
-   * 初始准备
-   */
-  preReady() {
-    if (!app.getHasLogin()) {
-      app.auth().then(() => {
-        this.fetchCourseResult();
-      });
-    } else {
-      this.fetchCourseResult();
-    }
-  },
   /**
    * 加载所有专题课程
    */

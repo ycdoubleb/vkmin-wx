@@ -22,7 +22,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.2",
+	"libVersion": "2.8.0",
 	"appid": "wx44aeef59ce52fe7d",
 	"projectname": "vkmin",
 	"debugOptions": {

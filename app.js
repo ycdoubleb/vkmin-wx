@@ -1,17 +1,19 @@
 //app.js
+import Ready from 'min-ready';
 import util from './utils/util';
-import http from '@chunpu/http';
 import Api from './utils/api.js';
 import EventBus, {
   EventName
 } from './utils/event.js';
+
+const ready = new Ready();
 
 App({
   onLaunch: function(options) {
     if (!this.checkTokenValid()) {
       // 未登录或者登录过期
       console.log('未登录或者登录过期');
-      this.onLogin(false);
+      this.login();
     } else {
       util.promisify(wx.checkSession)().then(() => {
         console.log('session 生效')
@@ -23,15 +25,15 @@ App({
         console.log('登录成功', user);
       }).catch(err => {
         console.log(`自动登录失败, 重新登录`, err)
-        this.onLogin(false);
+        this.login();
       })
     }
   },
 
   /**
-   * 认证
+   * 登录
    */
-  auth() {
+  login() {
     return util.promisify(wx.login)().then(({
       code
     }) => {
@@ -40,11 +42,7 @@ App({
         code,
         type: 'wxapp'
       }).then((data) => {
-        this.saveLocal(data);
-        // 检查用户是否授权，授权后可读取用户昵称和头像，未授权则跳转授权页
-        if (this.checkUserAuth(true)) {
-          this.onLogin(true, data);
-        }
+        this.onLogin(true, data);
       });
     });
   },
@@ -67,15 +65,23 @@ App({
    * @param Object data     登录数据
    */
   onLogin: function(success, data = {}) {
-    console.log('onLogin', success,data);
+    console.log('onLogin', success, data);
     this.globalData.hasLogin = success;
-    if (success) {
-      this.saveLocal(data);
+    this.saveLocal(data);
+    ready.open();
+  },
 
+  /**
+   * 授权完成
+   */
+  onAuth(user) {
+    this.saveLocal({
+      user
+    });
+    if (this.checkUserAuth()) {
       const bus = this.globalData.bus;
-      bus.emit(EventName.LOGIN, {
-        success,
-        user: this.globalData.user
+      bus.emit(EventName.USER_CHANGED, {
+        user: user
       });
     }
   },
@@ -86,7 +92,6 @@ App({
   saveLocal(data) {
     if (data['user']) {
       wx.setStorageSync('user', data['user']);
-
       this.globalData.user = data['user'];
     }
     if (data['token']) wx.setStorageSync('token', data['token']);
@@ -113,8 +118,7 @@ App({
    * 获取用户
    */
   getUser() {
-    const isNotAuth = !this.globalData.user || this.globalData.user['username'] == '';
-    return isNotAuth ? null : this.globalData.user;
+    return this.globalData.user;
   },
 
   /* 
@@ -145,6 +149,14 @@ App({
     })
   },
 
+  /**
+   * 侦听用户准备，注意有用户不等于用户已经授权
+   */
+  ready(func) {
+    // 把函数放入队列中
+    ready.queue(func);
+  },
+
   //--------------------------------------------------------------------------------------
   //
   // globaData
@@ -153,14 +165,14 @@ App({
   /**
    * 是否已登录
    */
-  getHasLogin(){
+  getHasLogin() {
     return this.globalData.hasLogin;
   },
 
   /**
    * 事件总线
    */
-  getBus(){
+  getBus() {
     return this.globalData.bus;
   },
 

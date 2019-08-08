@@ -1,5 +1,3 @@
-// pages/search/search.js
-import http from '@chunpu/http';
 import util from '../../utils/util.js';
 import Api from '../../utils/api.js';
 //获取应用实例
