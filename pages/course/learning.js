@@ -37,7 +37,6 @@ Page({
   //
   //--------------------------------------------------------------------------------------
   ready() {
-    console.log('ready!!!!');
     const user = app.getUser();
     // 保存学习记录
     Api.post(Api.SAVE_LEARNING, { 
