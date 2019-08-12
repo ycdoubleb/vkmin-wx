@@ -66,7 +66,7 @@
               <!--专题名-->
               <text class="topic_name">{{item.name}}</text>
               <!--课程数-->
-              <text class="course_num">（{{item.couNum}}门）</text>
+              <text class="course_num">({{item.couNum}}门)</text>
             </view>
           </view>
         </navigator>

@@ -13,8 +13,8 @@ Page({
     interval: 3000,
     duration: 1000,
     ready: false,
-    recommend_courses: '',
-    topics: ''
+    recommend_courses: [],
+    topics: []
   },
 
   //--------------------------------------------------------------------------------------

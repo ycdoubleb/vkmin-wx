@@ -51,6 +51,7 @@
   justify-content: space-between;
   padding:15px 10px 0px; 
   margin-top: 15px;
+  margin-bottom: 41px;
   background-color: #fff;
 }
 /**标题**/
@@ -71,13 +72,8 @@
 }
 /**学习按钮**/
 .start_learning{
-  /* position: fixed;
-  bottom: 0px; */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-end;
-  align-content: flex-end;
+  position: fixed;
+  bottom: 0px;
   width: 100%;
   font-size: 16px;
   color: #fff;
